@@ -2,7 +2,6 @@ const socket = ((conf) => {
 
     if(typeof conf !== "object"){ console.error('O conf deve ser objeto.'); return false; }
     if(typeof conf.url !== "string"){ console.error('A url deve ser string.'); return false; }
-
     if(conf.enableLog === undefined){ conf.enableLog = false; }
 
     var socket = new WebSocket(conf.url);
@@ -31,12 +30,7 @@ const socket = ((conf) => {
         if(data.length !== 2){ console.error('Data length ('+data.length+') !== 2',data); }
         if(typeof data[0] !== 'string'){ console.error('Data[0] !== string',data); }
 
-        if(eventsm[data[0]] !== undefined){
-
-            eventsm[data[0]](data[1]);
-
-        }
-
+        if(eventsm[data[0]] !== undefined){ eventsm[data[0]](data[1]); }
         if(conf.enableLog === true){ logm.push(data); }
 
     });
@@ -50,13 +44,4 @@ const socket = ((conf) => {
 
 });
 
-var ss = socket({url:'wss://wss-svl.sprinthub.dev?session='+sessionStorage.sprint_session});
-ss.on('teste',((data) => { console.log(data); }));
-
-/*
-
-var ss = socket({url:'wss://wss-svl.sprinthub.dev?session='+sessionStorage.sprint_session});
-ss.on('teste',((data) => { console.log(data); }));
-
-*/
 module.exports = socket;

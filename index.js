@@ -8,7 +8,8 @@ const socket = ((conf) => {
     var socket = new WebSocket(conf.url);
     var eventsm = {};
     var logm = {};
-
+    
+    socket.version = 'mlima 1.0.4';
     socket.on = ((name,func) => { 
     
         if(typeof func !== "function"){ return false; }

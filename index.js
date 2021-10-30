@@ -4,6 +4,7 @@ const socket = ((conf) => {
     if(typeof conf.url !== "string"){ console.error('A url deve ser string.'); return false; }
     if(conf.enableLog === undefined){ conf.enableLog = false; }
 
+    if(conf.enableLog === true){ console.log('conectando ao socketm'); }
     var socket = new WebSocket(conf.url);
     var eventsm = {};
     var logm = {};

@@ -36,6 +36,10 @@ const socket = ((conf) => {
     });
 
     socket.addEventListener('message',(data) => { filterEvents(data.data); });
+    socket.addEventListener('onclose',(data) => { filterEvents(data.data); });
+    socket.addEventListener('onerror',(data) => { filterEvents(data.data); });
+    socket.addEventListener('onopen',(data) => { filterEvents(data.data); });
+
     socket.filterEvents = filterEvents;
     socket.eventsm = eventsm;
     socket.logm = logm;

@@ -9,7 +9,7 @@ const socket = ((conf) => {
     var eventsm = {};
     var logm = {};
     
-    socket.version = 'mlima 1.0.4';
+    socket.version = 'mlima 1.0.5';
     socket.on = ((name,func) => { 
     
         if(typeof func !== "function"){ return false; }

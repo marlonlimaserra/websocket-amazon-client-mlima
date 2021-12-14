@@ -37,7 +37,7 @@ const socket = ((conf) => {
 
     });
 
-    socket.addEventListener('message',(data) => { if(data === "ping" || data === "pong"){ return false; } filterEvents(data.data); });
+    socket.addEventListener('message',(data) => { if(data.data === "ping" || data.data === "pong"){ return false; } filterEvents(data.data); });
     socket.addEventListener('onclose',(data) => { filterEvents(data.data); });
     socket.addEventListener('onerror',(data) => { filterEvents(data.data); });
     socket.addEventListener('onopen',(data) => { filterEvents(data.data); });

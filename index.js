@@ -9,7 +9,7 @@ const socket = ((conf) => {
     var eventsm = {};
     var logm = {};
     
-    socket.version = 'mlima 1.0.5';
+    socket.version = 'mlima 1.0.9';
     socket.on = ((name,func) => { 
     
         if(typeof func !== "function"){ return false; }
@@ -33,7 +33,7 @@ const socket = ((conf) => {
         if(typeof data[0] !== 'string'){ console.error('Data[0] !== string',data); }
 
         if(eventsm[data[0]] !== undefined){ eventsm[data[0]](data[1]); }
-        if(conf.enableLog === true){ logm.push(data); }
+        //if(conf.enableLog === true){ logm.push(data); }
 
     });
 
